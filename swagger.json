@@ -1,0 +1,200 @@
+{
+  "swagger": "2.0",
+  "info": {},
+  "paths": {
+    "/students": {
+      "get": {
+        "description": "Returns existing student",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Student"
+        ],
+        "summary": "Get Student",
+        "operationId": "getAll",
+        "responses": {
+          "200": {
+            "description": "Student data",
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Returns new Student",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Student"
+        ],
+        "summary": "Add new Student",
+        "operationId": "createNewStudent",
+        "parameters": [
+          {
+            "description": "add Student data",
+            "name": "student",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "New Student created",
+            "schema": {
+              "$ref": "#/definitions/StudentStudent"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "405": {
+            "description": "Method Not Allowed"
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        }
+      }
+    },
+    "/students/{id}": {
+      "get": {
+        "description": "Returns existing Student filtered by id",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Student"
+        ],
+        "summary": "Get Student",
+        "operationId": "getById",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Student data",
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "405": {
+            "description": "Method Not Allowed"
+          }
+        }
+      },
+      "put": {
+        "description": "replace existing Student filtered by id",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Student"
+        ],
+        "summary": "replace Student",
+        "operationId": "replaceStudent_Put",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "description": "add student data",
+            "name": "student",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Student response",
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete existing Student filtered by id",
+        "tags": [
+          "Student"
+        ],
+        "summary": "Delete  student",
+        "operationId": "deleteStudent",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "410": {
+            "description": "delete Student sucessfully"
+          }
+        }
+      },
+      "patch": {
+        "description": "Update existing Student filtered by id",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Student"
+        ],
+        "summary": "Update Student",
+        "operationId": "updateStudent_Patch",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "description": "add student data",
+            "name": "student",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Student response",
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          }
+        }
+      }
+    }
+  }
+}
